@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  kocsistem.rabbitmq.payment.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
+  kocsistem.rabbitmq.apigateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+

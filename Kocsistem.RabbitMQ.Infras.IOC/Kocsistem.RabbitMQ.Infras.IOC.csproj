@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Kocsistem.RabbitMQ.Domain.Core\Kocsistem.RabbitMQ.Domain.Core.csproj" />
+    <ProjectReference Include="..\Kocsistem.RabbitMQ.Infras.Bus\Kocsistem.RabbitMQ.Infras.Bus.csproj" />
+    <ProjectReference Include="..\Kocsistem.RabbitMQ.Payment.Application\Kocsistem.RabbitMQ.Payment.Application.csproj" />
+    <ProjectReference Include="..\Kocsistem.RabbitMQ.Payment.Data\Kocsistem.RabbitMQ.Payment.Data.csproj" />
+    <ProjectReference Include="..\Kocsistem.RabbitMQ.Stock.Application\Kocsistem.RabbitMQ.Stock.Application.csproj" />
+    <ProjectReference Include="..\Kocsistem.RabbitMQ.Stock.Data\Kocsistem.RabbitMQ.Stock.Data.csproj" />
+  </ItemGroup>
+
+</Project>

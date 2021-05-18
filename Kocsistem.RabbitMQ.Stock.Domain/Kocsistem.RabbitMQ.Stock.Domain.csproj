@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Kocsistem.RabbitMQ.Domain.Core\Kocsistem.RabbitMQ.Domain.Core.csproj" />
+    <ProjectReference Include="..\Kocsistem.RabbitMQ.Payment.Domain\Kocsistem.RabbitMQ.Payment.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Events\" />
+  </ItemGroup>
+
+</Project>

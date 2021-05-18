@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  kocsistem.rabbitmq.payment.api:
+    image: ${DOCKER_REGISTRY-}kocsistemrabbitmqpaymentapi
+    ports:
+        - "65001:80"
+    build:
+      context: .
+      dockerfile: Kocsistem.RabbitMQ.Payment.Api/Dockerfile
+
+  kocsistem.rabbitmq.apigateway:
+    image: ${DOCKER_REGISTRY-}kocsistemrabbitmqapigateway
+    ports:
+        - "65000:80"
+    build:
+      context: .
+      dockerfile: Kocsistem.RabbitMQ.ApiGateway/Dockerfile
+

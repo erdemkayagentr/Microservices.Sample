@@ -1,0 +1,23 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Home/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "172.16.0.2",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/payment/{everything}",
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post"
+      ]
+
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:65000"
+  }
+}
