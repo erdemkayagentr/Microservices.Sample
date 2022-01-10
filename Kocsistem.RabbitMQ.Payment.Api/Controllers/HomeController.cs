@@ -33,7 +33,7 @@ namespace Kocsistem.RabbitMQ.Payment.Api.Controllers
         }
 
         [HttpGet("getDeneme")]
-        public async Task<IActionResult> GetDeneme()
+        public IActionResult GetDeneme()
         {
             return Ok("Merhaba Dünya");
         }
