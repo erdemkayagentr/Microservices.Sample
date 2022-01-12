@@ -1,23 +1,44 @@
 {
   "Routes": [
+
     {
-      "DownstreamPathTemplate": "/api/Home/{everything}",
+      "DownstreamPathTemplate": "/api/orders",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "172.16.0.2",
-          "Port": 80
+          "Host": "localhost",
+          "Port": 5001
         }
       ],
-      "UpstreamPathTemplate": "/payment/{everything}",
-      "UpstreamHttpMethod": [
-        "Get",
-        "Post"
-      ]
-
-    }
+      "UpstreamPathTemplate": "/orders",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/payments",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/payments",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/stock",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/stock",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    } 
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:65000"
+    "BaseUrl": "http://127.0.0.1:5000"
   }
 }

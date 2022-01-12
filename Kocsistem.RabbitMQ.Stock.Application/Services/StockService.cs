@@ -30,9 +30,10 @@ namespace Kocsistem.RabbitMQ.Stock.Application.Services
         {
             return _stockDetailRepository.GetAllStocks().Select(x => new StockDetailModel()
             {
-                Piece = x.Piece,
+                StockQuantity = x.StockQuantity,
                 ProductName = x.ProductName,
-                Date = x.Date
+                Date = x.Date,
+                PieceAmount = x.PieceAmount
             });
         }
 
@@ -41,20 +42,25 @@ namespace Kocsistem.RabbitMQ.Stock.Application.Services
             var stock = await _stockDetailRepository.GetStockDetail(id);
             var result = new StockDetailModel
             {
-                Piece = stock.Piece,
+                StockQuantity = stock.StockQuantity,
                 ProductName = stock.ProductName,
-                Date = stock.Date
+                PieceAmount= stock.PieceAmount,
+                Date = stock.Date,
+                Id = stock.Id
             };
             return result;
         }
 
-        public async Task<bool> Update(StockDetailSubstruct stockDetail)
+        public async Task<bool> Update(StockSalesQuantity stockSalesQuantity)
         {
-            var stock = await _stockDetailRepository.GetStockDetail(stockDetail.Id);
+            var stock = await _stockDetailRepository.GetStockDetail(stockSalesQuantity.Id);
             if (stock != null)
             {
-                stock.Piece--;
-                _stockDetailRepository.Update(stock);
+                stock.StockQuantity = stock.StockQuantity - stockSalesQuantity.Quantity;
+                if(stock.StockQuantity > -1)
+                {
+                    _stockDetailRepository.Update(stock);
+                }
             }
 
             return true;

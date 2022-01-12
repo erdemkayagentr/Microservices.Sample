@@ -1,7 +1,7 @@
 ﻿using Kocsistem.RabbitMQ.Domain.Core.Bus;
+using Kocsistem.RabbitMQ.Domain.Core.Events.Stock;
 using Kocsistem.RabbitMQ.Stock.Domain.Interfaces;
 using System.Threading.Tasks;
-using Kocsistem.RabbitMQ.Payment.Domain.Events;
 
 namespace Kocsistem.RabbitMQ.Stock.Domain.EventHandlers
 {
@@ -16,10 +16,10 @@ namespace Kocsistem.RabbitMQ.Stock.Domain.EventHandlers
 
         public async Task Handle(StockUpdatedEvent @event)
         {
-            var stock = await  _stockDetailRepository.GetStockDetail(@event.Id).ConfigureAwait(false);
-            if (stock != null)
+            var stock = await _stockDetailRepository.GetStockDetail(@event.OrderID).ConfigureAwait(false);
+            if (stock != null && (stock.StockQuantity - @event.SalesQuantity) > -1)
             {
-                stock.Piece--;
+                stock.StockQuantity--;
                 _stockDetailRepository.Update(stock);
             }
 

@@ -5,13 +5,17 @@ namespace Kocsistem.RabbitMQ.Payment.Domain.Commands
 {
     public class StockUpdatedCommand : Command
     {
-        public Guid Id { get; set; }
-        public bool PieceSubstract { get; set; }
+        public Guid StockId { get; set; }
+        public Guid OrderId { get; set; }
+        public Guid PaymentId { get; set; }
+        public int SalesQuantity { get; set; }
 
-        public StockUpdatedCommand(Guid id,bool pieceSubstract)
+        public StockUpdatedCommand(Guid stockId,Guid orderId, Guid paymentId, int salesQuantity)
         {
-            this.Id = id;
-            this.PieceSubstract = pieceSubstract;
+            StockId = stockId;
+            OrderId = orderId;
+            PaymentId = paymentId;
+            SalesQuantity = salesQuantity;
         }
     }
 }

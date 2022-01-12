@@ -1,6 +1,6 @@
 ﻿using Kocsistem.RabbitMQ.Domain.Core.Bus;
+using Kocsistem.RabbitMQ.Domain.Core.Events.Stock;
 using Kocsistem.RabbitMQ.Payment.Domain.Commands;
-using Kocsistem.RabbitMQ.Payment.Domain.Events;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,7 +18,7 @@ namespace Kocsistem.RabbitMQ.Payment.Domain.CommandHandlers
 
         public async Task<bool> Handle(StockUpdatedCommand request, CancellationToken cancellationToken)
         {
-            _eventBus.Publish(new StockUpdatedEvent(request.Id,request.PieceSubstract));
+            _eventBus.Publish(new StockUpdatedEvent(request.SalesQuantity,request.OrderId,request.PaymentId));
             return await Task.FromResult(true);
         }
     }

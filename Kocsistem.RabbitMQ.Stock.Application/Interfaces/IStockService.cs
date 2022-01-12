@@ -10,7 +10,7 @@ namespace Kocsistem.RabbitMQ.Stock.Application.Interfaces
     {
         IEnumerable<StockDetailModel> GetAllStocks();
         Task<bool> Add(StockDetailModel stockDetail);
-        Task<bool> Update(StockDetailSubstruct stockDetail);
+        Task<bool> Update(StockSalesQuantity stockSalesQuantity);
         Task<StockDetailModel> GetStockDetail(Guid id);
     }
 }

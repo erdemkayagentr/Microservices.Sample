@@ -25,9 +25,10 @@ namespace Kocsistem.RabbitMQ.Payment.Application.Services
             PaymentDetail entity = new PaymentDetail
             {
                 Amount = paymentDetail.Amount,
-                BasketId = paymentDetail.BasketId,
-                PaymentRate = paymentDetail.PaymentRate,
-                StockId = paymentDetail.StockId
+                PayDate = paymentDetail.PayDate,
+                Quantity = paymentDetail.Quantity,
+                StockId = paymentDetail.StockId,
+                UserId = paymentDetail.UserId
             };
             try
             {
@@ -38,11 +39,11 @@ namespace Kocsistem.RabbitMQ.Payment.Application.Services
                 throw new Exception(e.Message);
             }
 
-            var commandStock = new StockUpdatedCommand(paymentDetail.StockId, true);
-            var commandBasket = new BasketUpdatedCommand(paymentDetail.BasketId, true);
+            var commandStock = new StockUpdatedCommand(paymentDetail.StockId, paymentDetail.OrderId,paymentDetail.Id, paymentDetail.Quantity);
+            // var commandBasket = new BasketUpdatedCommand(paymentDetail.BasketId, true);
             //Rabbite gönderiyoruz
             await _eventBus.SendCommand(commandStock);
-            await _eventBus.SendCommand(commandBasket);
+            //   await _eventBus.SendCommand(commandBasket);
             return true;
         }
     }

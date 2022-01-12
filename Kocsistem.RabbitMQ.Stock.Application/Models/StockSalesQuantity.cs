@@ -2,9 +2,9 @@
 
 namespace Kocsistem.RabbitMQ.Stock.Application.Models
 {
-    public class StockDetailSubstruct
+    public class StockSalesQuantity
     {
         public Guid Id { get; set; }
-        public bool PieceSubstract { get; set; }
+        public int Quantity { get; set; }
     }
 }

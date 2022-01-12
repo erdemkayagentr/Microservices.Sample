@@ -5,14 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="EventHandlers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="MediatR" Version="10.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Kocsistem.RabbitMQ.Order.Domain\Kocsistem.RabbitMQ.Order.Domain.csproj" />
     <ProjectReference Include="..\Kocsistem.RabbitMQ.Domain.Core\Kocsistem.RabbitMQ.Domain.Core.csproj" />
   </ItemGroup>
 

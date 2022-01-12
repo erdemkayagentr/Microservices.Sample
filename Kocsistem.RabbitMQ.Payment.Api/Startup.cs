@@ -1,5 +1,8 @@
+using Kocsistem.RabbitMQ.Domain.Core.Bus;
+using Kocsistem.RabbitMQ.Domain.Core.Events.Payment;
 using Kocsistem.RabbitMQ.Infras.IOC;
 using Kocsistem.RabbitMQ.Payment.Data.Context;
+using Kocsistem.RabbitMQ.Payment.Domain.EventHandlers;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -64,6 +67,12 @@ namespace Kocsistem.RabbitMQ.Payment.Api
 
             });
 
+        }
+
+        private void ConfigureEventBus(IApplicationBuilder app)
+        {
+            var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
+            eventBus.Subscribe<PaymentCreatedEvent, PaymentCreatedEventHandler>();
         }
     }
 }

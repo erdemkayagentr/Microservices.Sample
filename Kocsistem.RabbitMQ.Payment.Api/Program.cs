@@ -1,20 +1,40 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Kocsistem.RabbitMQ.Payment.Data.Context;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using System;
+using System.Threading.Tasks;
 
 namespace Kocsistem.RabbitMQ.Payment.Api
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+
+
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                try
+                {
+                    var paymentDbContext = services.GetRequiredService<PaymentDbContext>();
+                    await paymentDbContext.Database.MigrateAsync();
+                }
+                catch
+                {
+
+                    throw;
+                }
+            }
+
+
+
+
+            host.Run();
         }
 
         public static IWebHostBuilder CreateHostBuilder(string[] args) =>

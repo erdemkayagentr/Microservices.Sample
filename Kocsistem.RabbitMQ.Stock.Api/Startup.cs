@@ -1,9 +1,8 @@
 using Kocsistem.RabbitMQ.Domain.Core.Bus;
+using Kocsistem.RabbitMQ.Domain.Core.Events.Stock;
 using Kocsistem.RabbitMQ.Infras.IOC;
-using Kocsistem.RabbitMQ.Payment.Domain.Events;
 using Kocsistem.RabbitMQ.Stock.Data.Context;
 using Kocsistem.RabbitMQ.Stock.Domain.EventHandlers;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;

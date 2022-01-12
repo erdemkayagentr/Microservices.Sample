@@ -33,7 +33,9 @@ namespace Kocsistem.RabbitMQ.Infras.Bus
         {
             var factory = new ConnectionFactory()
             {
-                HostName = "172.16.0.56"
+                HostName = "localhost",
+                UserName ="admin",
+                Password ="123456"
             };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
@@ -81,7 +83,12 @@ namespace Kocsistem.RabbitMQ.Infras.Bus
 
         private void StartBasicConsume<T>() where T : Event
         {
-            var factory = new ConnectionFactory() { HostName = "localhost", DispatchConsumersAsync = true };
+            var factory = new ConnectionFactory() { 
+                HostName = "localhost", 
+                DispatchConsumersAsync = true,
+                UserName = "admin",
+                Password = "123456"
+            };
             var connection = factory.CreateConnection();
             var channel = connection.CreateModel();
 

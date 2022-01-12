@@ -20,22 +20,22 @@ namespace Kocsistem.RabbitMQ.Mvc.Controllers
             _logger = logger;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            HttpClient _client = new HttpClient();
-            PaymentDetailModel model = new PaymentDetailModel
-            {
-                StockId = new Guid("0eb532d5-b783-4a0d-9f97-5aa280b45ec9"),
-                BasketId = new Guid("b809c823-3746-4463-b32f-9418072fe00f"),
-                Amount = 19.05m,
-                PaymentRate = "Kredi Kartı"
-            };
-            var uri = "http://localhost:65000/payment/addPayment";
-            var transferContent = new StringContent(JsonConvert.SerializeObject(model),
-                System.Text.Encoding.UTF8,
-                "application/json");
-            var response = await _client.PostAsync(uri, transferContent);
-            response.EnsureSuccessStatusCode();
+            //HttpClient _client = new HttpClient();
+            //PaymentDetailModel model = new PaymentDetailModel
+            //{
+            //    StockId = new Guid("0eb532d5-b783-4a0d-9f97-5aa280b45ec9"),
+            //    BasketId = new Guid("b809c823-3746-4463-b32f-9418072fe00f"),
+            //    Amount = 19.05m,
+            //    PaymentRate = "Kredi Kartı"
+            //};
+            //var uri = "http://localhost:65000/payment/addPayment";
+            //var transferContent = new StringContent(JsonConvert.SerializeObject(model),
+            //    System.Text.Encoding.UTF8,
+            //    "application/json");
+            //var response = await _client.PostAsync(uri, transferContent);
+            //response.EnsureSuccessStatusCode();
             return View();
         }
 

@@ -10,7 +10,8 @@ namespace Kocsistem.RabbitMQ.Stock.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
         public string ProductName { get; set; }
-        public int Piece { get; set; }
+        public int StockQuantity { get; set; }
+        public decimal PieceAmount { get; set; }
         public DateTime Date { get; set; }
     }
 }

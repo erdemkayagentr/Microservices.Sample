@@ -13,5 +13,13 @@ namespace Kocsistem.RabbitMQ.Stock.Data.Context
 
         }
         public DbSet<StockDetail> StockDetail { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+        }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
     }
 }

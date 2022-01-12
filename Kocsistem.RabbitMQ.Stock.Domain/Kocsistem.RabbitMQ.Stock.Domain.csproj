@@ -9,8 +9,4 @@
     <ProjectReference Include="..\Kocsistem.RabbitMQ.Payment.Domain\Kocsistem.RabbitMQ.Payment.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Events\" />
-  </ItemGroup>
-
 </Project>
