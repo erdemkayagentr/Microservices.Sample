@@ -18,7 +18,7 @@ namespace Kocsistem.RabbitMQ.Payment.Domain.CommandHandlers
 
         public async Task<bool> Handle(StockUpdatedCommand request, CancellationToken cancellationToken)
         {
-            _eventBus.Publish(new StockUpdatedEvent(request.SalesQuantity,request.OrderId,request.PaymentId));
+            _eventBus.Publish(new StockUpdatedEvent(request.SalesQuantity,request.OrderId,request.PaymentId,request.StockId));
             return await Task.FromResult(true);
         }
     }

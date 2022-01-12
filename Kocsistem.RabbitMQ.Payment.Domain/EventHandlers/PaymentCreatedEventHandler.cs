@@ -25,6 +25,9 @@ namespace Kocsistem.RabbitMQ.Payment.Domain.EventHandlers
                 Quantity = @event.Quantity,
                 StockId = @event.StockId,
                 UserId = @event.UserId,
+                OrderId = @event.OrderId,
+                IsActive = true,
+                PayDate = System.DateTime.Now
             };
             _paymentDetailRepository.Add(entity);
             var stockCommand = _eventBus.SendCommand(new StockUpdatedCommand(@event.StockId,@event.OrderId, entity.Id,@event.Quantity));

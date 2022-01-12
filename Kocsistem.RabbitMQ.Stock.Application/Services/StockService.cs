@@ -12,12 +12,10 @@ namespace Kocsistem.RabbitMQ.Stock.Application.Services
     public class StockService : IStockService
     {
         private readonly IStockDetailRepository _stockDetailRepository;
-        private readonly IEventBus _eventBus;
 
-        public StockService(IStockDetailRepository stockDetailRepository, IEventBus eventBus)
+        public StockService(IStockDetailRepository stockDetailRepository)
         {
             _stockDetailRepository = stockDetailRepository;
-            _eventBus = eventBus;
         }
 
         public Task<bool> Add(StockDetailModel stockDetail)
@@ -30,6 +28,7 @@ namespace Kocsistem.RabbitMQ.Stock.Application.Services
         {
             return _stockDetailRepository.GetAllStocks().Select(x => new StockDetailModel()
             {
+                Id = x.Id,
                 StockQuantity = x.StockQuantity,
                 ProductName = x.ProductName,
                 Date = x.Date,

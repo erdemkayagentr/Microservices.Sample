@@ -32,10 +32,11 @@ namespace Kocsistem.RabbitMQ.Payment.Api.Controllers
             return Ok(true);
         }
 
-        [HttpGet("getDeneme")]
-        public IActionResult GetDeneme()
+        [HttpGet("getPayments")]
+        public IActionResult GetPayments()
         {
-            return Ok("Merhaba Dünya");
+            var payments = _paymentService.GetAllPayments();
+            return Ok(payments);
         }
     }
 }

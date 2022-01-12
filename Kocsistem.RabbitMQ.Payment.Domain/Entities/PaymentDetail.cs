@@ -10,6 +10,7 @@ namespace Kocsistem.RabbitMQ.Payment.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
+        public Guid OrderId { get; set; }
         public Guid StockId { get; set; }
         public decimal Amount { get; set; }
         public int Quantity { get; set; }

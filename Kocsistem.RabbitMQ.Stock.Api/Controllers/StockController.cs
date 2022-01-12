@@ -1,11 +1,12 @@
-﻿using Kocsistem.RabbitMQ.Stock.Application.Interfaces;
+using Kocsistem.RabbitMQ.Stock.Application.Interfaces;
+using Kocsistem.RabbitMQ.Stock.Application.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kocsistem.RabbitMQ.Stock.Api.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class StockController : Controller
+    [Route("api/[controller]")]
+    public class StockController : ControllerBase
     {
 
         private readonly IStockService _stockService;
@@ -14,10 +15,12 @@ namespace Kocsistem.RabbitMQ.Stock.Api.Controllers
         {
             _stockService = stockService;
         }
-        [HttpGet("Index")]
-        public IActionResult Index()
+
+        [HttpGet("getStockProducts")]
+        public IEnumerable<StockDetailModel> GetStockProducts()
         {
-            return Ok("Çalışıyorum");
+            var model = _stockService.GetAllStocks();
+            return model;
         }
     }
 }

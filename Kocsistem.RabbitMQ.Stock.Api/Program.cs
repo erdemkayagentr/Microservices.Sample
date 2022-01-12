@@ -13,6 +13,8 @@ namespace Kocsistem.RabbitMQ.Stock.Api
     {
         public static async Task Main(string[] args)
         {
+            var configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true).Build();
             var host = CreateHostBuilder(args).Build();
 
 
@@ -35,7 +37,7 @@ namespace Kocsistem.RabbitMQ.Stock.Api
 
 
 
-            host.Run();
+            await host.RunAsync();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

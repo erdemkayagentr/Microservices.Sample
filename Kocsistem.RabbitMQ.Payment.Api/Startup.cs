@@ -41,7 +41,7 @@ namespace Kocsistem.RabbitMQ.Payment.Api
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Banking Microservice", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Payment Microservice", Version = "v1" });
             });
             services.AddMediatR(typeof(Startup));
             RegisterServices(services);
@@ -66,7 +66,7 @@ namespace Kocsistem.RabbitMQ.Payment.Api
                 s.SwaggerEndpoint("v1/swagger.json", "Payment Microservice v1");
 
             });
-
+            ConfigureEventBus(app);
         }
 
         private void ConfigureEventBus(IApplicationBuilder app)

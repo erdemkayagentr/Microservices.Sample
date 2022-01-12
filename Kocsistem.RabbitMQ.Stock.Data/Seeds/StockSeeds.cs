@@ -14,15 +14,26 @@ namespace Kocsistem.RabbitMQ.Stock.Data.Seeds
         {
             if (!stockDbContext.StockDetail.Any())
             {
-                var entity = new StockDetail
+                var entity = new List<StockDetail>
                 {
-                    Date = DateTime.Now,
-                    PieceAmount = 1905,
-                    ProductName = "SendeoProduct",
-                    StockQuantity = 45
+                    new StockDetail
+                    {
+                        Date = DateTime.Now,
+                        PieceAmount = 1905,
+                        ProductName = "SendeoProduct",
+                        StockQuantity = 45
+                    },
+                    new StockDetail
+                    {
+                        Date = DateTime.Now,
+                        PieceAmount = 1481,
+                        ProductName = "SendeoProduct2",
+                        StockQuantity = 10
+                    }
                 };
 
-                await stockDbContext.StockDetail.AddAsync(entity);
+                await stockDbContext.StockDetail.AddRangeAsync(entity);
+                await stockDbContext.SaveChangesAsync();
             }
         }
     }

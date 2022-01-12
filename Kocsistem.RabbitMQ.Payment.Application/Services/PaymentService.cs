@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Kocsistem.RabbitMQ.Domain.Core.Bus;
 using Kocsistem.RabbitMQ.Payment.Domain.Commands;
 using Kocsistem.RabbitMQ.Payment.Domain.Entities;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Kocsistem.RabbitMQ.Payment.Application.Services
 {
@@ -39,12 +41,29 @@ namespace Kocsistem.RabbitMQ.Payment.Application.Services
                 throw new Exception(e.Message);
             }
 
-            var commandStock = new StockUpdatedCommand(paymentDetail.StockId, paymentDetail.OrderId,paymentDetail.Id, paymentDetail.Quantity);
+            var commandStock = new StockUpdatedCommand(paymentDetail.StockId, paymentDetail.OrderId, paymentDetail.Id, paymentDetail.Quantity);
             // var commandBasket = new BasketUpdatedCommand(paymentDetail.BasketId, true);
             //Rabbite gönderiyoruz
             await _eventBus.SendCommand(commandStock);
             //   await _eventBus.SendCommand(commandBasket);
             return true;
+        }
+
+        public IEnumerable<PaymentDetailModel> GetAllPayments()
+        {
+            var list = _paymentDetailRepository.GetAllPayments().Select(x => new PaymentDetailModel
+            {
+                Id = x.Id,
+                Amount = x.Amount,
+                IsActive = x.IsActive,
+                OrderId = x.OrderId,
+                PayDate = x.PayDate,
+                Quantity = x.Quantity,
+                StockId = x.StockId,
+                UserId = x.UserId
+            });
+
+            return list;
         }
     }
 }

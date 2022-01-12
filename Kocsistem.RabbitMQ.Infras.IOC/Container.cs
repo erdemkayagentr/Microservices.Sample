@@ -29,6 +29,7 @@ using Kocsistem.RabbitMQ.Stock.Domain.EventHandlers;
 using Kocsistem.RabbitMQ.Stock.Domain.Interfaces;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Kocsistem.RabbitMQ.Infras.IOC
 {
@@ -46,12 +47,14 @@ namespace Kocsistem.RabbitMQ.Infras.IOC
             //subscribe
             services.AddTransient<StockUpdatedEventHandler>();
             services.AddTransient<PaymentCreatedEventHandler>();
-            services.AddTransient<StockUpdatedEventHandler>();
+            services.AddTransient<OrderSucceededEventHandler>();
+            services.AddTransient<OrderRejectedEventHandler>();
 
             //Domain Events
             services.AddTransient<IEventHandler<StockUpdatedEvent>, StockUpdatedEventHandler>();
             services.AddTransient<IEventHandler<PaymentCreatedEvent>, PaymentCreatedEventHandler>();
             services.AddTransient<IEventHandler<OrderSucceededEvent>, OrderSucceededEventHandler>();
+            services.AddTransient<IEventHandler<OrderRejectedEvent>, OrderRejectedEventHandler>();
 
 
             //Command

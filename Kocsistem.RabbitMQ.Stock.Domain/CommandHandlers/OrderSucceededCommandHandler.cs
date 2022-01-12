@@ -2,6 +2,7 @@
 using Kocsistem.RabbitMQ.Domain.Core.Events.Order;
 using Kocsistem.RabbitMQ.Stock.Domain.Commands;
 using MediatR;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 

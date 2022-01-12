@@ -3,6 +3,7 @@ using Kocsistem.RabbitMQ.Domain.Core.Events.Stock;
 using Kocsistem.RabbitMQ.Infras.IOC;
 using Kocsistem.RabbitMQ.Stock.Data.Context;
 using Kocsistem.RabbitMQ.Stock.Domain.EventHandlers;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -46,7 +47,7 @@ namespace Kocsistem.RabbitMQ.Stock.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Stock Microservice", Version = "v1" });
             });
-
+            services.AddMediatR(typeof(Startup));
             RegisteredServices(services);
         }
 
@@ -69,6 +70,7 @@ namespace Kocsistem.RabbitMQ.Stock.Api
             {
                 opt.SwaggerEndpoint("v1/swagger.json", "Stock Microservice v1");
             });
+
             ConfigureEventBus(app);
         }
 

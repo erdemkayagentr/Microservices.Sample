@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Kocsistem.RabbitMQ.Stock.Application.Models;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using Kocsistem.RabbitMQ.Stock.Application.Models;
 
 namespace Kocsistem.RabbitMQ.Stock.Application.Interfaces
 {
