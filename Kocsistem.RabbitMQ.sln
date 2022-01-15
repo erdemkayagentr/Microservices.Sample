@@ -51,7 +51,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kocsistem.RabbitMQ.Stock.Do
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kocsistem.RabbitMQ.Stock.Data", "Kocsistem.RabbitMQ.Stock.Data\Kocsistem.RabbitMQ.Stock.Data.csproj", "{21DB7C38-1CCF-4B73-A1A1-378AA3907127}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{EA6EDF27-3BE5-4DE5-93AC-0C009A650BBB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Customers", "Customers", "{EA6EDF27-3BE5-4DE5-93AC-0C009A650BBB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kocsistem.RabbitMQ.Payment.Api", "Kocsistem.RabbitMQ.Payment.Api\Kocsistem.RabbitMQ.Payment.Api.csproj", "{A4F95963-D360-4B34-93AC-12AB57F9D645}"
 EndProject
@@ -79,9 +79,29 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kocsistem.RabbitMQ.Order.Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kocsistem.RabbitMQ.Order.Api", "..\Kocsistem.RabbitMQ.Order.Api\Kocsistem.RabbitMQ.Order.Api.csproj", "{FA348095-E7D1-468A-BA02-4210D102D79B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kocsistem.RabbitMQ.Stock.Application", "Kocsistem.RabbitMQ.Stock.Application\Kocsistem.RabbitMQ.Stock.Application.csproj", "{D138C1F2-B3C7-484A-BDB2-36CA70C84E6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kocsistem.RabbitMQ.Stock.Application", "Kocsistem.RabbitMQ.Stock.Application\Kocsistem.RabbitMQ.Stock.Application.csproj", "{D138C1F2-B3C7-484A-BDB2-36CA70C84E6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kocsistem.RabbitMQ.Stock.Api", "Kocsistem.RabbitMQ.Stock.Api\Kocsistem.RabbitMQ.Stock.Api.csproj", "{788017ED-3725-42DD-BE88-457A544571B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kocsistem.RabbitMQ.Stock.Api", "Kocsistem.RabbitMQ.Stock.Api\Kocsistem.RabbitMQ.Stock.Api.csproj", "{788017ED-3725-42DD-BE88-457A544571B4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kocsistem.RabbitMQ.Customers.Api", "Kocsistem.RabbitMQ.Customers.Api\Kocsistem.RabbitMQ.Customers.Api.csproj", "{0C7ABEE5-B6D6-4C45-8AA7-20BF316F5E04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{93473012-BEC5-4012-BCA5-AD3F6B75C89A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{E7DBB994-472C-4268-AF55-364CEC176903}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{0DEFDDE3-ACB9-4118-96DE-22F95977D50F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{C3E17400-40A7-4FB3-AC5F-8DC7A06A64D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kocsistem.RabbitMQ.Customers.Application", "Kocsistem.RabbitMQ.Customers.Application\Kocsistem.RabbitMQ.Customers.Application.csproj", "{00152BB7-6E9E-46C9-B342-386E2CD2E5EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kocsistem.RabbitMQ.Customers.Data", "Kocsistem.RabbitMQ.Customers.Data\Kocsistem.RabbitMQ.Customers.Data.csproj", "{04944F34-C204-423A-A564-97F5CCCDBB8C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kocsistem.RabbitMQ.Customers.Domain", "Kocsistem.RabbitMQ.Customers.Domain\Kocsistem.RabbitMQ.Customers.Domain.csproj", "{5D223608-E594-496B-B890-E54557826D95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{14089F8B-95A6-47EA-84D4-83D03A569A0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kocsistem.RabbitMQ.Customers.Application.Test", "Kocsistem.RabbitMQ.Customers.Application.Test\Kocsistem.RabbitMQ.Customers.Application.Test.csproj", "{7DF4B71B-2121-4CFB-9983-38112F8359CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -157,6 +177,26 @@ Global
 		{788017ED-3725-42DD-BE88-457A544571B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{788017ED-3725-42DD-BE88-457A544571B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{788017ED-3725-42DD-BE88-457A544571B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C7ABEE5-B6D6-4C45-8AA7-20BF316F5E04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C7ABEE5-B6D6-4C45-8AA7-20BF316F5E04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C7ABEE5-B6D6-4C45-8AA7-20BF316F5E04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C7ABEE5-B6D6-4C45-8AA7-20BF316F5E04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00152BB7-6E9E-46C9-B342-386E2CD2E5EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00152BB7-6E9E-46C9-B342-386E2CD2E5EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00152BB7-6E9E-46C9-B342-386E2CD2E5EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00152BB7-6E9E-46C9-B342-386E2CD2E5EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04944F34-C204-423A-A564-97F5CCCDBB8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04944F34-C204-423A-A564-97F5CCCDBB8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04944F34-C204-423A-A564-97F5CCCDBB8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04944F34-C204-423A-A564-97F5CCCDBB8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D223608-E594-496B-B890-E54557826D95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D223608-E594-496B-B890-E54557826D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D223608-E594-496B-B890-E54557826D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D223608-E594-496B-B890-E54557826D95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DF4B71B-2121-4CFB-9983-38112F8359CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DF4B71B-2121-4CFB-9983-38112F8359CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DF4B71B-2121-4CFB-9983-38112F8359CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DF4B71B-2121-4CFB-9983-38112F8359CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -198,6 +238,15 @@ Global
 		{FA348095-E7D1-468A-BA02-4210D102D79B} = {27802768-AB88-4D1B-BCE6-4DC7BFE43469}
 		{D138C1F2-B3C7-484A-BDB2-36CA70C84E6A} = {453175F7-BAFB-46F8-8D09-0A5BB3E88391}
 		{788017ED-3725-42DD-BE88-457A544571B4} = {7A946C2C-463A-4D73-A997-6B624190D8A1}
+		{0C7ABEE5-B6D6-4C45-8AA7-20BF316F5E04} = {93473012-BEC5-4012-BCA5-AD3F6B75C89A}
+		{93473012-BEC5-4012-BCA5-AD3F6B75C89A} = {EA6EDF27-3BE5-4DE5-93AC-0C009A650BBB}
+		{E7DBB994-472C-4268-AF55-364CEC176903} = {EA6EDF27-3BE5-4DE5-93AC-0C009A650BBB}
+		{0DEFDDE3-ACB9-4118-96DE-22F95977D50F} = {EA6EDF27-3BE5-4DE5-93AC-0C009A650BBB}
+		{C3E17400-40A7-4FB3-AC5F-8DC7A06A64D0} = {EA6EDF27-3BE5-4DE5-93AC-0C009A650BBB}
+		{00152BB7-6E9E-46C9-B342-386E2CD2E5EE} = {E7DBB994-472C-4268-AF55-364CEC176903}
+		{04944F34-C204-423A-A564-97F5CCCDBB8C} = {0DEFDDE3-ACB9-4118-96DE-22F95977D50F}
+		{5D223608-E594-496B-B890-E54557826D95} = {C3E17400-40A7-4FB3-AC5F-8DC7A06A64D0}
+		{7DF4B71B-2121-4CFB-9983-38112F8359CB} = {14089F8B-95A6-47EA-84D4-83D03A569A0D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B1EE515-4B82-4086-A5D3-C954AB973ACE}

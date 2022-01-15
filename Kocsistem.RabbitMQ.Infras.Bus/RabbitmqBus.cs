@@ -2,6 +2,7 @@
 using Kocsistem.RabbitMQ.Domain.Core.Commands;
 using Kocsistem.RabbitMQ.Domain.Core.Events;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
@@ -20,22 +21,24 @@ namespace Kocsistem.RabbitMQ.Infras.Bus
         private readonly Dictionary<string, List<Type>> _handlers;
         private readonly List<Type> _eventTypes;
         private readonly IServiceScopeFactory _serviceScopeFactory;
+        private readonly IConfiguration _configuration;
 
-        public RabbitmqBus(IMediator mediator, IServiceScopeFactory serviceScopeFactory)
+        public RabbitmqBus(IMediator mediator, IServiceScopeFactory serviceScopeFactory, IConfiguration configuration)
         {
             _mediator = mediator;
             _serviceScopeFactory = serviceScopeFactory;
             _handlers = new Dictionary<string, List<Type>>();
             _eventTypes = new List<Type>();
+            _configuration = configuration;
         }
 
         public void Publish<T>(T @event) where T : Event
         {
             var factory = new ConnectionFactory()
             {
-                HostName = "localhost",
-                UserName ="admin",
-                Password ="123456"
+                HostName = _configuration.GetSection("RabbitMQ:HostName").Value,
+                UserName = _configuration.GetSection("RabbitMQ:UserName").Value,
+                Password = _configuration.GetSection("RabbitMQ:Password").Value,
             };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
@@ -84,10 +87,10 @@ namespace Kocsistem.RabbitMQ.Infras.Bus
         private void StartBasicConsume<T>() where T : Event
         {
             var factory = new ConnectionFactory() { 
-                HostName = "localhost", 
                 DispatchConsumersAsync = true,
-                UserName = "admin",
-                Password = "123456"
+                HostName = _configuration.GetSection("RabbitMQ:HostName").Value,
+                UserName = _configuration.GetSection("RabbitMQ:UserName").Value,
+                Password = _configuration.GetSection("RabbitMQ:Password").Value,
             };
             var connection = factory.CreateConnection();
             var channel = connection.CreateModel();

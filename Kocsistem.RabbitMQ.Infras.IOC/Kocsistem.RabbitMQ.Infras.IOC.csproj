@@ -11,6 +11,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Kocsistem.RabbitMQ.Order.Application\Kocsistem.RabbitMQ.Order.Application.csproj" />
     <ProjectReference Include="..\..\Kocsistem.RabbitMQ.Order.Data\Kocsistem.RabbitMQ.Order.Data.csproj" />
+    <ProjectReference Include="..\Kocsistem.RabbitMQ.Customers.Application\Kocsistem.RabbitMQ.Customers.Application.csproj" />
+    <ProjectReference Include="..\Kocsistem.RabbitMQ.Customers.Data\Kocsistem.RabbitMQ.Customers.Data.csproj" />
     <ProjectReference Include="..\Kocsistem.RabbitMQ.Domain.Core\Kocsistem.RabbitMQ.Domain.Core.csproj" />
     <ProjectReference Include="..\Kocsistem.RabbitMQ.Infras.Bus\Kocsistem.RabbitMQ.Infras.Bus.csproj" />
     <ProjectReference Include="..\Kocsistem.RabbitMQ.Payment.Application\Kocsistem.RabbitMQ.Payment.Application.csproj" />

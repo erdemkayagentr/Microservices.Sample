@@ -1,4 +1,9 @@
-﻿using Kocsistem.RabbitMQ.Domain.Core.Bus;
+﻿using Kocsistem.RabbitMQ.Customers.Application.Interfaces;
+using Kocsistem.RabbitMQ.Customers.Application.Services;
+using Kocsistem.RabbitMQ.Customers.Data.Contexts;
+using Kocsistem.RabbitMQ.Customers.Data.Repositories;
+using Kocsistem.RabbitMQ.Customers.Domain.Interfaces;
+using Kocsistem.RabbitMQ.Domain.Core.Bus;
 using Kocsistem.RabbitMQ.Domain.Core.Events.Order;
 using Kocsistem.RabbitMQ.Domain.Core.Events.Payment;
 using Kocsistem.RabbitMQ.Domain.Core.Events.Stock;
@@ -28,8 +33,8 @@ using Kocsistem.RabbitMQ.Stock.Domain.Commands;
 using Kocsistem.RabbitMQ.Stock.Domain.EventHandlers;
 using Kocsistem.RabbitMQ.Stock.Domain.Interfaces;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace Kocsistem.RabbitMQ.Infras.IOC
 {
@@ -41,7 +46,8 @@ namespace Kocsistem.RabbitMQ.Infras.IOC
             services.AddSingleton<IEventBus, RabbitmqBus>(s =>
             {
                 var scopeFactory = s.GetRequiredService<IServiceScopeFactory>();
-                return new RabbitmqBus(s.GetService<IMediator>(), scopeFactory);
+                var configuration = s.GetRequiredService<IConfiguration>();
+                return new RabbitmqBus(s.GetService<IMediator>(), scopeFactory, configuration);
             });
 
             //subscribe
@@ -67,16 +73,19 @@ namespace Kocsistem.RabbitMQ.Infras.IOC
             services.AddTransient<IPaymentService, PaymentService>();
             services.AddTransient<IStockService, StockService>();
             services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<ICustomerService, CustomerService>();
 
             //Data
             services.AddTransient<IPaymentDetailRepository, PaymentDetailRepository>();
             services.AddTransient<IStockDetailRepository, StockDetailRepository>();
             services.AddTransient<IOrderTableRepository, OrderTableRepository>();
+            services.AddTransient<ICustomersRepository, CustomersRepository>();
 
             //Context
             services.AddTransient<PaymentDbContext>();
             services.AddTransient<StockDbContext>();
             services.AddTransient<OrderDbContext>();
+            services.AddTransient<CustomerDbContext>();
         }
     }
 }

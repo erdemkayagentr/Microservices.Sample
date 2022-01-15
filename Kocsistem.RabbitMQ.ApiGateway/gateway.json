@@ -36,8 +36,21 @@
       ],
       "UpstreamPathTemplate": "/stock/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post" ]
-    } 
+    },
+    {
+      "DownstreamPathTemplate": "/api/customer/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5004
+        }
+      ],
+      "UpstreamPathTemplate": "/customer/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    }
   ],
+  "http": null,
   "GlobalConfiguration": {
     "BaseUrl": "http://127.0.0.1:5000"
   }
